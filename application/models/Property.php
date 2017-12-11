@@ -14,7 +14,9 @@ class Property extends CI_MODEL
     public function get($id)
     {
         $where['id'] = $id;
-        $this->db->get_where('properties', $where);
+        $result_set = $this->db->get_where('properties', $where);
+        $result_arr = $result_set->result_array();
+        return $result_arr[0];
     }
 
     public function update($id, $new_data)

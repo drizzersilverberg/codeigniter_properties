@@ -10,6 +10,7 @@ class Properties extends CI_Controller
     {
         $data['user_name'] = 'Bernard';
         $data['status_group'] = ['All', 'Available', 'Unavailable'];
+        $data['properties'] = $this->Property->all();
         $this->load->view('layouts/header');
         $this->load->view('layouts/foundation_nav');
         $this->load->view('properties/index', $data);

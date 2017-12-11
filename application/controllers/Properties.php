@@ -11,10 +11,20 @@ class Properties extends CI_Controller
         $data['user_name'] = 'Bernard';
         $data['status_group'] = ['All', 'Available', 'Unavailable'];
         $data['properties'] = $this->Property->all();
+
+        $data['selected_filter'] = $this->session->selected_filter;
+
         $this->load->view('layouts/header');
         $this->load->view('layouts/foundation_nav');
         $this->load->view('properties/index', $data);
         $this->load->view('layouts/footer');
+    }
+
+    public function set_filter()
+    {
+        $session_data['selected_filter'] = $this->input->get('filter');
+        $this->session->set_userdata($session_data);
+        redirect('properties/index');
     }
 
     /**

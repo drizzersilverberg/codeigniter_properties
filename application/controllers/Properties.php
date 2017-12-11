@@ -25,6 +25,8 @@ class Properties extends CI_Controller
      */
     public function show($id)
     {
+        $this->load->model('Property');
+        $data['name'] = $this->Property->get();
         $data['id'] = $id;
         $this->load->view('properties/show', $data);
     }

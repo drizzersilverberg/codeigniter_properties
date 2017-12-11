@@ -20,6 +20,24 @@ class Properties extends CI_Controller
         $this->load->view('layouts/footer');
     }
 
+    public function kml_export()
+    {
+        # -- view in browser
+        $this->output->set_content_type('application/xml');
+
+        # -- download the kml
+        // $this->output->set_content_type('application/octet-stream');
+        // header('Content-Disposition: inline; filename="real_estate_kml_export.kml"');
+
+        $this->load->view('properties/kml_export');
+    }
+
+    public function view_image()
+    {
+        $image = file_get_contents('assets/images/ThinkstockPhotos-160415922.jpg');
+        $this->output->set_content_type('jpeg')->set_output($image);
+    }
+
     public function set_filter()
     {
         $session_data['selected_filter'] = $this->input->get('filter');

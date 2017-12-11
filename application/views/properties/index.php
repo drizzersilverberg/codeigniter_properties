@@ -26,7 +26,7 @@
       <td>Greeley, CO </td>
       <td>Available</td>
       <td>
-        <a class="button success">View Details</a>
+        <a href="<?php echo site_url('properties/show/1'); ?>" class="button success">View Details</a>
       </td>
     </tr>
 

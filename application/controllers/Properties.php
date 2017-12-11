@@ -36,4 +36,23 @@ class Properties extends CI_Controller
     {
         $this->Property->connection_test();
     }
+
+    public function edit($id)
+    {
+        if ($_POST) {
+            $name = $this->input->post('name');
+            $description = $this->input->post('description');
+            $new_data['name'] = $name;
+            $new_data['description'] = $description;
+
+            $this->Property->update($id, $new_data);
+            redirect('properties/index');
+        }
+
+        $data['property'] = $this->Property->get($id);
+        $this->load->view('layouts/header');
+        $this->load->view('layouts/foundation_nav');
+        $this->load->view('properties/edit', $data);
+        $this->load->view('layouts/footer');
+    }
 }

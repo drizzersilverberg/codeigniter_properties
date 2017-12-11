@@ -24,6 +24,8 @@ class Properties extends CI_Controller
      */
     public function show($id)
     {
+        $version = $this->Property->get_version();
+        $data['version'] = $version->conn_id->server_info;
         $data['name'] = $this->Property->get();
         $data['id'] = $id;
         $this->load->view('properties/show', $data);

@@ -8,6 +8,7 @@ class Property extends CI_MODEL
     public function __construct()
     {
         parent::__construct();
+        $this->db = $this->load->database('default', TRUE);
     }
 
     public function get()
@@ -15,8 +16,9 @@ class Property extends CI_MODEL
         return "4 Bedroom 2 Story House";
     }
 
-    public function connection_test()
+    public function get_version()
     {
-        return $this->load->database('default', TRUE);
+        $result_set = $this->db->query('SELECT VERSION()');
+        return $result_set;
     }
 }

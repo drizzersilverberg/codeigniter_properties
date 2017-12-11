@@ -30,4 +30,10 @@ class Properties extends CI_Controller
         $data['id'] = $id;
         $this->load->view('properties/show', $data);
     }
+
+    public function db_test()
+    {
+        $this->load->model('Property');
+        $this->Property->connection_test();
+    }
 }

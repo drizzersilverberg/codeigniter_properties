@@ -20,35 +20,18 @@
       <td>STATUS</td>
       <td>ACTION</td>
     </tr>
-    <tr>
-      <td><img src="<?php echo base_url('assets/images/ThinkstockPhotos-145054512.jpg') ?>" width="150" /></td>
-      <td>4 Bedroom 2 Story House </td>
-      <td>Greeley, CO </td>
-      <td>Available</td>
-      <td>
-        <a href="<?php echo site_url('properties/show/1'); ?>" class="button success">View Details</a>
-      </td>
-    </tr>
-
-    <tr>
-      <td><img src="<?php echo base_url('assets/images/ThinkstockPhotos-160415922.jpg') ?>" width="150" /></td>
-      <td>Spacious Classic Home</td>
-      <td>Loveland, CO </td>
-      <td>Available</td>
-      <td>
-        <a class="button success">View Details</a>
-      </td>
-    </tr>
-
-    <tr>
-      <td><img src="<?php echo base_url('assets/images/ThinkstockPhotos-179240420.jpg') ?>" width="150" /></td>
-      <td>3 Bedroom Condo</td>
-      <td>Platteville, CO</td>
-      <td>Available</td>
-      <td>
-        <a class="button success">View Details</a>
-      </td>
-    </tr>
+    <?php foreach($properties as $property) { ?>
+      <tr>
+        <td><img src="<?php echo base_url("assets/images/{$property['image']}"); ?>" width="150" /></td>
+        <td><?php echo $property['name']; ?></td>
+        <td><?php echo $property['location']; ?></td>
+        <td><?php echo $property['status']; ?></td>
+        <td>
+          <a href="<?php echo site_url('properties/show/' . $property['id']); ?>" class="button success">View Details</a>
+          <a href="<?php echo site_url('properties/edit/' . $property['id']); ?>" class="button">Edit Details</a>
+        </td>
+      </tr>
+    <?php } ?>
   </table>
   <br/>
 </div>
